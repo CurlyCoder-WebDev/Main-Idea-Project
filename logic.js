@@ -1,4 +1,8 @@
-(function(){
+function initiateQuiz(){
+  //hide the difficulty buttons
+  const diffButton = document.querySelector("#difficulty-buttons")
+  diffButton.style.display = "none";
+
   // Functions
   function buildQuiz(){
     // variable to store the HTML output
@@ -36,6 +40,7 @@
 
     // finally combine our output list into one string of HTML and put it on the page
     quizContainer.innerHTML = output.join('');
+
   }
 
   function showResults(){
@@ -60,7 +65,7 @@
         numCorrect++;
 
         // color the answers green
-        answerContainers[questionNumber].style.color = 'green';
+        answerContainers[questionNumber].style.color = 'lightgreen';
       }
       // if answer is wrong or blank
       else{
@@ -107,51 +112,66 @@
   const submitButton = document.getElementById('submit');
   const myQuestions = [
     {
-      question: "Cat is to Mouse as Cow is to ___.",
+      question: "Who invented JavaScript?",
       answers: {
-        a: "People",
-        b: "Mud",
-        c: "Grass",
-        d: "Funny"
+        a: "Douglas Crockford",
+        b: "Sheryl Sandberg",
+        c: "Brendan Eich"
       },
       correctAnswer: "c"
     },
     {
-      question: "Snake is to Reptile as Lion is to ___.",
+      question: "Which one of these is a JavaScript package manager?",
       answers: {
-        a: "Animal",
-        b: "Cat",
-        c: "Mammal",
-        d: "Dog"
+        a: "Node.js",
+        b: "TypeScript",
+        c: "npm"
       },
       correctAnswer: "c"
     },
     {
-      question: "Music is to Listen as Television is to ___.",
+      question: "Which tool can you use to ensure code quality?",
       answers: {
-        a: "Car",
-        b: "Telephone",
-        c: "Entertainment",
-        d: "Watch"
+        a: "Angular",
+        b: "jQuery",
+        c: "RequireJS",
+        d: "ESLint"
       },
       correctAnswer: "d"
     }
+
+
+
+
+    
   ];
 
   // Kick things off
-  buildQuiz();
 
+   buildQuiz();
   // Pagination
   const previousButton = document.getElementById("previous");
   const nextButton = document.getElementById("next");
   const slides = document.querySelectorAll(".slide");
   let currentSlide = 0;
 
-  // Show the first slide
+ // Show the first slide
   showSlide(currentSlide);
 
-  // Event listeners
+// Event listeners
   submitButton.addEventListener('click', showResults);
   previousButton.addEventListener("click", showPreviousSlide);
   nextButton.addEventListener("click", showNextSlide);
-})();
+
+}
+
+
+
+/*
+
+problem 
+function isn't define 
+unnamed 
+
+
+*/ 
